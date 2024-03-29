@@ -1,0 +1,87 @@
+% PREAMPLE
+
+\documentclass[a4paper, 14pt]{article}
+
+\usepackage[
+    inner=10mm,
+    outer=10mm,
+    top=5mm,
+    bottom=10mm
+]{geometry}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{hyperref}
+
+
+\title{\include{title}}
+\date{}
+\pagenumbering{gobble}
+
+\newcommand{\cvsection}[2]{
+    \begin{minipage}[t]{.25\textwidth}
+        [ \textbf{#1} ]:
+    \end{minipage}
+    \vrule
+    \hspace{2mm}
+    \begin{minipage}[t]{.70\textwidth}
+        #2
+    \end{minipage}
+    \vspace{.25cm}
+}
+
+
+\begin{document}
+    % FORMALIA
+    \begin{minipage}{.75\textwidth}
+    \maketitle
+    \end{minipage}
+    \begin{minipage}{.25\textwidth}
+        \begin{tikzpicture}
+            \clip (0,0) circle (1.5cm);
+            \node[anchor=center] at (0,0) {\includegraphics[width=.8\textwidth]{files/pfp.jpg}};
+        \end{tikzpicture}
+    \end{minipage}
+    \hrule
+    \vspace{.5cm}
+
+    % MAIN
+
+    \cvsection{Me}{
+        Hi, as of writing my CV, I am an 8th semester student in Software Engineering at Aalborg University. 
+        I have a bachelor in Computer Engineering. 
+        My personal interests include; gaming, D\&D, programming and Linux.
+
+        In terms of programming I take particular interest in functional programming, but anything that can enhance my experience as a Linux user is also interesting to me.
+        As a person who plays video games in Linux, it also provides challenges, so i have experience with tweaking various graphical drivers and layers in the graphical software stack in Linux.
+    }
+
+    \cvsection{Languages and tools}{
+        \begin{itemize}
+            \item Python, C, C++, Nix, Java and Haskell
+            \item CMake, Gradle, Maven
+        \end{itemize}
+    }
+
+    \cvsection{Significant Projects}{
+        \textbf{Bachelor Project: } An interesting research project where we made a series of tests for a testbed and actually acquired some interesting results. 
+        In this project I learned a lot about computer networking and tools you can use to interface with the networking functionality in the Linux kernel.
+
+        \textbf{Skademaskinen: } My server, in conjunction with a friend from Aalborg University I have used various computer parts to create a server which hosts a variety of software I have written.
+        Available on \href{https://github.com/Skademaskinen}{Github}.
+
+        \textbf{ASCK: } As a member of Aalborg Supercomputer Klub I have not contributed a lot yet, but I plan to contribute more before I finish my studies. 
+        I have experimented a little with HPL and their Rock5B SBC's.
+    }
+    
+    \cvsection{Work Experience}{
+        \textbf{DEIS: } During my bachelor studies, I worked as a student programmer at DEIS, a research unit of Department of Computer Science at Aalborg University. 
+        This job was focused on making a GUI solution for a framework for a course in Distributed Systems.
+
+        \textbf{F-Klubben: } I have worked as a volunteer at F-klubben, an association for students and employees at Department of Computer Science. 
+        As a member of the association my role has primarily been as a contributer to their software, most notably working on \href{https://github.com/f-klubben/fnix}{fnix}.
+    }
+
+    % FOOTER
+    \vspace*{\fill}
+    \tiny Written in \LaTeX, Source is available at: \href{https://github.com/Mast3rwaf1z/CV}{https://github.com/Mast3rwaf1z/CV}
+\end{document}
