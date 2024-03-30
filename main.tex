@@ -11,11 +11,19 @@
 \usepackage{xcolor}
 \usepackage{tikz}
 \usepackage{hyperref}
+\usepackage{ulem}
+\usepackage{float}
+\usepackage{fontawesome}
 
+\renewcommand{\familydefault}{\sfdefault}
 
 \title{\include{title}}
 \date{}
+\author{}
 \pagenumbering{gobble}
+
+\definecolor{myorange}{HTML}{dd2200}
+\newcommand{\myitem}[1]{\item[\color{myorange}$\circ$]#1}
 
 \newcommand{\cvsection}[2]{
     \begin{minipage}[t]{.25\textwidth}
@@ -27,6 +35,14 @@
         #2
     \end{minipage}
     \vspace{.25cm}
+}
+
+\newcommand{\newcvsection}[2]{
+    \noindent\huge \textbf{#1} \color{myorange}\hrulefill\color{black}
+    
+    \normalsize
+    #2    
+    \vspace{.5cm}
 }
 
 
@@ -41,44 +57,76 @@
             \node[anchor=center] at (0,0) {\includegraphics[width=.8\textwidth]{files/pfp.jpg}};
         \end{tikzpicture}
     \end{minipage}
-    \hrule
-    \vspace{.5cm}
 
     % MAIN
 
-    \cvsection{Me}{
-        Hi, as of writing my CV, I am an 8th semester student in Software Engineering at Aalborg University. 
-        I have a bachelor in Computer Engineering. 
-        My personal interests include; gaming, D\&D, programming and Linux.
+    %\cvsection{Me}{
+    %    Hi, as of writing my CV, I am an 8th semester student in Software Engineering at Aalborg University. 
+    %    I have a bachelor in Computer Engineering. 
+    %    My personal interests include; gaming, D\&D, programming and Linux.
+    %    In terms of programming I take particular interest in functional programming, but anything that can enhance my experience as a Linux user is also interesting to me.
+    %    As a person who plays video games in Linux, it also provides challenges, so i have experience with tweaking various graphical drivers and layers in the graphical software stack in Linux.
+    %}
 
-        In terms of programming I take particular interest in functional programming, but anything that can enhance my experience as a Linux user is also interesting to me.
-        As a person who plays video games in Linux, it also provides challenges, so i have experience with tweaking various graphical drivers and layers in the graphical software stack in Linux.
+    \newcvsection{Education}{
+        \noindent\textbf{BSc Computer Engineering} \hfill \color{gray} Sep. 2020 - Jun. 2023
+        
+        \color{black} Aalborg University - Department of Electronic Systems
+
+        \noindent\textbf{MSc Software Engineering} \hfill \color{gray} Sep. 2023 - Jun. 2025
+
+        \color{black} Aalborg University - Department of Computer Science
     }
 
-    \cvsection{Languages and tools}{
+    \newcvsection{Skills}{
+        \begin{table}[H]
+            \begin{tabular}{rl}
+                \textbf{Programming} & Python, C, C++, Nix, Java, Haskell\\
+                \textbf{OS} & Arch, NixOS, anything Linux... \\
+                \textbf{Build tools} & Cmake, Gradle, Maven \\
+                \textbf{Languages} & English, Danish
+            \end{tabular}
+        \end{table}
+    }
+
+    \newcvsection{Significant Projects}{
         \begin{itemize}
-            \item Python, C, C++, Nix, Java and Haskell
-            \item CMake, Gradle, Maven
+            \myitem{
+                \textbf{Bachelor Project: } An interesting research project where we made a series of tests for a testbed and actually acquired some interesting results. 
+                In this project I learned a lot about computer networking and tools you can use to interface with the networking functionality in the Linux kernel.
+            }
+            \myitem{
+                \textbf{Skademaskinen: } My server, in conjunction with a friend from Aalborg University we have used various computer parts to create a server which hosts a variety of software we have written.
+                Available on \href{https://github.com/Skademaskinen}{Github}.
+                \begin{itemize}
+                    \myitem{
+                        Two of the three Discord bots are written by me in Java using the dv8tion JDA library. One of these is thoroughly tested using GitHub Actions.
+                    }
+                    \myitem{
+                        My website has a backend server hosting a REST API, handling authorization and my home network, as well as a method for me to update the site without changing the source code.
+                    }
+                \end{itemize}
+            }
+
+            \myitem{
+                \textbf{ASCK: } As a member of Aalborg Supercomputer Klub I have not contributed a lot yet, but I plan to contribute more before I finish my studies. 
+                I have experimented a little with HPL and their Rock5B SBC's.
+            }
         \end{itemize}
     }
-
-    \cvsection{Significant Projects}{
-        \textbf{Bachelor Project: } An interesting research project where we made a series of tests for a testbed and actually acquired some interesting results. 
-        In this project I learned a lot about computer networking and tools you can use to interface with the networking functionality in the Linux kernel.
-
-        \textbf{Skademaskinen: } My server, in conjunction with a friend from Aalborg University I have used various computer parts to create a server which hosts a variety of software I have written.
-        Available on \href{https://github.com/Skademaskinen}{Github}.
-
-        \textbf{ASCK: } As a member of Aalborg Supercomputer Klub I have not contributed a lot yet, but I plan to contribute more before I finish my studies. 
-        I have experimented a little with HPL and their Rock5B SBC's.
-    }
     
-    \cvsection{Work Experience}{
-        \textbf{DEIS: } During my bachelor studies, I worked as a student programmer at DEIS, a research unit of Department of Computer Science at Aalborg University. 
-        This job was focused on making a GUI solution for a framework for a course in Distributed Systems.
-
-        \textbf{F-Klubben: } I have worked as a volunteer at F-klubben, an association for students and employees at Department of Computer Science. 
-        As a member of the association my role has primarily been as a contributer to their software, most notably working on \href{https://github.com/f-klubben/fnix}{fnix}.
+    \newcvsection{Work Experience}{
+        \begin{itemize}
+            \myitem{
+                \textbf{DEIS: } During my bachelor studies, I worked as a student programmer at DEIS, a research unit of Department of Computer Science at Aalborg University. 
+                This job was focused on making a GUI solution for a framework for a course in Distributed Systems.
+            }
+                
+            \myitem{
+                \textbf{F-Klubben: } I have worked as a volunteer at F-klubben, an association for students and employees at Department of Computer Science. 
+                As a member of the association my role has primarily been as a contributer to their software, most notably working on \href{https://github.com/f-klubben/fnix}{fnix}.
+            }
+        \end{itemize}
     }
 
     % FOOTER

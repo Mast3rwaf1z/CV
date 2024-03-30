@@ -19,7 +19,7 @@
 
             # compile time!
             ${pkgs.texliveFull}/bin/pdflatex main.tex
-            mv main.pdf CV.pdf
+            cp main.pdf CV.pdf
         '';
     in {
 
