@@ -13,7 +13,7 @@
             rm -rf cache
             mkdir -p cache/{aau,github}
             ${pkgs.wget}/bin/wget https://github.githubassets.com/assets/github-mark-c791e9551fe4.zip -O cache/github.zip
-            ${pkgs.wget}/bin/wget https://www.design.aau.dk/digitalAssets/888/888340_261020_aau-logo.zip -O cache/aau.zip
+            ${pkgs.wget}/bin/wget https://www.aaudxp-cms.aau.dk/media/3bpeclt2/888357_261020_aau_pnglogo.zip -O cache/aau.zip
             ${pkgs.unzip}/bin/unzip cache/github.zip -d cache/github
             ${pkgs.unzip}/bin/unzip cache/aau.zip -d cache/aau
 
