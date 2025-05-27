@@ -5,7 +5,7 @@
 \usepackage[
     inner=10mm,
     outer=10mm,
-    top=0mm,
+    top=5mm,
     bottom=10mm
 ]{geometry}
 \usepackage{xcolor}
@@ -14,6 +14,12 @@
 \usepackage{ulem}
 \usepackage{float}
 \usepackage{fontawesome}
+\usepackage[framemethod=tikz]{mdframed}
+
+\definecolor{mycolor}{rgb}{0.2, 0.2, 0.2}
+
+\newmdenv[innerlinewidth=0.5pt, roundcorner=4pt,linecolor=mycolor,innerleftmargin=6pt,
+innerrightmargin=6pt,innertopmargin=6pt,innerbottommargin=6pt]{mybox}
 
 \renewcommand{\familydefault}{\sfdefault}
 
@@ -53,17 +59,14 @@
     \end{minipage}
     \begin{minipage}{.25\textwidth}
         \begin{tikzpicture}
-            \clip (0,0) circle (1.5cm);
+            \clip (0,0) circle (1.8cm);
             \node[anchor=center] at (0,0) {\includegraphics[width=.8\textwidth]{files/pfp.jpg}};
         \end{tikzpicture}
     \end{minipage}
 
     % MAIN
-
-    \cvsection{Me}{
-        Hi, I graduated with a MSc. Software Engineering degree in Spring 2025, I take a great interest in many different problems, as i'm always curious about different, new ways to solve a problem. A good example is how i descided to write my website entirely in Haskell. \\
-        My personal interests include various tabletop games, video games, reading and of course enjoying time with my friends.
-    }
+    \noindent Hi, I graduated with a MSc. Software Engineering degree in Spring 2025, I take a great interest in many different problems, as i'm always curious about different, new ways to solve a problem. A good example is how i descided to write my website entirely in Haskell. \\
+    \noindent My personal interests include various tabletop games, video games, reading and of course enjoying time with my friends.
 
     \newcvsection{Education}{
         \noindent\textbf{BSc Computer Engineering} \hfill \color{gray} Sep. 2020 - Jun. 2023
@@ -78,9 +81,9 @@
     \newcvsection{Skills}{
         \begin{table}[H]
             \begin{tabular}{rl}
-                \textbf{Programming} & Python, C, C++, Nix, Java, Haskell\\
+                \textbf{Programming} & Python, C, C++, Nix, Java, Haskell \\
                 \textbf{OS} & Arch, NixOS, anything Linux... \\
-                \textbf{Build tools} & Cmake, Gradle, Maven \\
+                \textbf{DevOps \& Deployment} & Kubernetes, Docker, Ansible, \textit{Nix}, Jenkins \\
                 \textbf{Languages} & English, Danish
             \end{tabular}
         \end{table}
@@ -93,9 +96,7 @@
                 In this project I learned a lot about computer networking and tools you can use to interface with the networking functionality in the Linux kernel.
             }
             \myitem{
-                \textbf{Master's Thesis: } A two-part project where we spent the fall semester researching Kubernetes and autoscaling techniques, to discover the faults of traditional autoscaling, and using the spring semester to implement the autoscaler. During the fall semester we also implemented a proof of concept, that we could conclude performed similar to the built-in HPA of Kubernetes.
-                This project had us propose a new autoscaler that built on Time Series Forecasting using historical data from Prometheus. Since the goal is to build an autoscaler that is more efficient than existing solutions, it was obvious that we had to build a robust system testing / validation setup.
-                In this project my primary contributions was architectural design, cluster design and system test- design and implementation.
+                \textbf{Master's Thesis: } A two-part project where we spent one half researching autoscaling in kubernetes and another implementing our take on autoscaling. In this project we proposed a proactive pod autoscaler as an alternative to the horizontal pod autoscaler in kubernetes.
             }
             \myitem{
                 \textbf{Skademaskinen: } My server, in conjunction with a friend from Aalborg University we have used various computer parts to create a server which hosts a variety of software we have written.
@@ -120,24 +121,59 @@
     
     \newcvsection{Work Experience}{
         \begin{itemize}
-            \myitem{
-                \textbf{DEIS: } During my bachelor studies, I worked as a student programmer at DEIS, a research unit of Department of Computer Science at Aalborg University. 
-                This job was focused on making a GUI solution for a framework for a course in Distributed Systems. Here i used Qt6
+            \begin{minipage}{.70\textwidth}
+                \myitem{
+                    \textbf{DEIS: } During my bachelor studies, I worked as a student programmer at DEIS, a research unit of Department of Computer Science at Aalborg University. 
+                    This job was focused on making a GUI solution for a framework for a course in Distributed Systems. Here i used Qt6
 
-                \textbf{Python \hfill $\cdot$ \hfill Qt6 \hfill $\cdot$ \hfill Distributed Systems}
-            }
+                }
+            \end{minipage}
+            \hfill
+            \begin{minipage}{.20\textwidth}
+                \begin{mybox}
+                    \begin{itemize}
+                        \item[$\cdot$] Python
+                        \item[$\cdot$] Qt6
+                        \item[$\cdot$] Distributed Systems
+                    \end{itemize}
+                \end{mybox}
+            \end{minipage}
                 
-            \myitem{
-                \textbf{F-Klubben: } I have worked as a volunteer at F-klubben, an association for students and employees at Department of Computer Science. 
-                As a member of the association my role has primarily been as a contributer to their software, most notably working on \href{https://github.com/f-klubben/stregsystemet}{stregsystemet}.
+            \begin{minipage}{.70\textwidth}
+                \myitem{
+                    \textbf{F-Klubben: } I have worked as a volunteer at F-klubben, an association for students and employees at Department of Computer Science. 
+                    As a member of the association my role has primarily been as a contributer to their software, most notably working on \href{https://github.com/f-klubben/stregsystemet}{stregsystemet}.
+                }
+            \end{minipage}
+            \hfill
+            \begin{minipage}{.20\textwidth}
+                \begin{mybox}
+                    \begin{itemize}
+                        \item[$\cdot$] Python
+                        \item[$\cdot$] Nix
+                        \item[$\cdot$] Django
+                        \item[$\cdot$] Nginx
+                    \end{itemize}
+                \end{mybox}
+            \end{minipage}
 
-                \textbf{Python \hfill $\cdot$ \hfill Nix \hfill $\cdot$ \hfill Django \hfill $\cdot$ \hfill Apache \hfill $\cdot$ \hfill Nginx}
-            }
-            \myitem {
-                \textbf{Lyngsoe Systems} During 2024 I worked on CD pipelines, security issues, tests and general maintenance with the backend team at Lyngsoe Systems. Here i gained experience working with a proper backend team.
-
-                \textbf{Java \hfill $\cdot$ \hfill CI/CD \hfill $\cdot$ \hfill Spring Boot \hfill $\cdot$ \hfill Oracle Cloud \hfill $\cdot$ \hfill Jenkins \hfill $\cdot$ \hfill Linux}
-            }
+            \begin{minipage}{.70\textwidth}
+                \myitem {
+                    \textbf{Lyngsoe Systems} During 2025 I worked on CD pipelines, security issues, tests and general maintenance with the backend team at Lyngsoe Systems. Here i gained experience working with a proper backend team.
+                }
+            \end{minipage}
+            \hfill
+            \begin{minipage}{.20\textwidth}
+                \begin{mybox}
+                    \begin{itemize}
+                        \item[$\cdot$] Java
+                        \item[$\cdot$] CI/CD
+                        \item[$\cdot$] Spring Boot
+                        \item[$\cdot$] Jenkins
+                        \item[$\cdot$] Linux
+                    \end{itemize}
+                \end{mybox}
+            \end{minipage}
         \end{itemize}
     }
 
